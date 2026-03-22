@@ -13,9 +13,8 @@ class ActivityController
         require_once '../app/views/activities/create.php';
     }
 
-    public function show(string $id)
+    public function show($id)
     {
         require_once '../app/views/activities/show.php';
-
     }
 }
