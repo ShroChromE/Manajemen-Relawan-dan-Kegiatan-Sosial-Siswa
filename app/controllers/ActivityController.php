@@ -35,6 +35,16 @@ class ActivityController extends Controller
         ]);
     }
 
+    public function manage()
+    {
+        $activityModel = new Activity();
+        $activities = $activityModel->getActivities();
+
+        $this->view('activities.manage',[
+            'activities' => $activities
+        ]);
+    }
+
     public function edit(string $id)
     {
         $id = intval($id);

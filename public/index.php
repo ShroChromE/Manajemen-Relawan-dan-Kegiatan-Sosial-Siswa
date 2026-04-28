@@ -15,6 +15,7 @@ $router->add('GET', '/activities', 'ActivityController', 'index');
 $router->add('GET', '/activities/create', 'ActivityController', 'create');
 $router->add('GET', '/activities/{id}', 'ActivityController', 'show');
 $router->add('GET', '/signup', 'AuthController', 'signup');
+$router->add('GET', '/activities/manage', 'activityController', 'manage');
 
 $router->run();
 
