@@ -1,0 +1,23 @@
+<?php
+namespace App\Core;
+
+use Exception;
+
+class Controller
+{
+    public function view(string $view, array $data = [])
+    {
+        $view = str_replace(
+            '.',
+            '/', 
+            $view
+        );
+
+        extract($data);
+    
+        $content = "../app/views/$view.php";
+
+        require_once '../app/views/layouts/app.php';
+    }
+}
+?>

@@ -1,20 +1,68 @@
 <?php
-namespace app\controllers;
+namespace App\Controllers;
 
-class ActivityController
+require_once '../app/core/Controller.php';
+require_once '../app/models/Activity.php';
+
+use App\Core\Controller;
+use App\Models\Activity;
+
+class ActivityController extends Controller
 {
     public function index()
     {
-        require_once '../app/views/activities/index.php';
+        $activityModel = new Activity();
+        $activities = $activityModel->getActivities();
+
+        $this->view('activities.index', [
+            'activities' => $activities
+        ]);
     }
 
     public function create()
     {
-        require_once '../app/views/activities/create.php';
+        $this->view('activities.create');
     }
 
-    public function show($id)
+    public function show(string $id)
     {
-        require_once '../app/views/activities/show.php';
+        $id = intval($id);
+        $activityModel = new Activity();
+        $activity = $activityModel->getActivity($id);
+
+        $this->view('activities.show', [
+            'activity' => $activity
+        ]);
+    }
+
+    public function edit(string $id)
+    {
+        $id = intval($id);
+        $activityModel = new Activity();
+        $activity = $activityModel->getActivity($id);
+
+        $this->view('activities.edit', [
+            'activity' => $activity
+        ]);
+    }
+
+    public function store()
+    {
+        $activityModel = new Activity();
+        $activityModel->insert($_POST);
+    }
+
+    public function update(string $id)
+    {
+        $id = intval($id);
+        $activityModel = new Activity();
+        $activityModel->update($_POST, $id);
+    }
+
+    public function destroy(string $id)
+    {
+        $id = intval($id);
+        $activityModel = new Activity();
+        $activityModel->delete($id);
     }
 }
