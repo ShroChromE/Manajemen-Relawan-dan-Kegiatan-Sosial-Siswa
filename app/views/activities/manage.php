@@ -29,7 +29,6 @@
         <th class="px-4 py-3 text-center text-sm font-bold text-white">Aksi</th>
       </tr>
     </thead>
-    <>
 
       <!-- Row 1 -->
       <?php foreach ($activities as $activity): ?>
