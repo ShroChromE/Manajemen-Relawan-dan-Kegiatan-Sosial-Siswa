@@ -21,12 +21,11 @@ $router->add('GET',  '/admin/activities/create',      'ActivityController', 'cre
 $router->add('GET',  '/admin/activities/{id}/edit',   'ActivityController', 'edit');
 $router->add('POST', '/admin/activities/{id}/update', 'ActivityController', 'update');
 $router->add('POST', '/admin/activities/{id}/delete', 'ActivityController', 'destroy');
-$router->add('GET', '/register', 'AuthController', 'signup');
 $router->add('POST', '/register', 'AuthController', 'register');
 $router->add('POST', '/login', 'AuthController', 'login');
 $router->add('POST', '/activities/{id}/register',   'RegistrationController', 'store');
 $router->add('POST', '/activities/{id}/unregister', 'RegistrationController', 'destroy');
+$router->add('GET', '/admin/activities/{id}/edit', 'ActivityController', 'edit');
 
 $router->run();
-
 ?>
